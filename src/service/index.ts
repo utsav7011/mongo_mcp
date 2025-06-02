@@ -9,6 +9,7 @@ import { deleteManyDocs } from "./deleteManyDocs";
 import { countDocs } from "./countDocs";
 import { createnewIndexIndexInCollection } from "./createNewIndex";
 import { getIndexesInACollection } from "./getIndexes";
+import { deleteIndexinMongoDbCollection } from "./deleteIndex";
 // import { insertANewDocumentToMongoDb } from "./insertNewDocumentToMongodb";
 
 export {
@@ -23,4 +24,5 @@ export {
   countDocs,
   createnewIndexIndexInCollection,
   getIndexesInACollection,
+  deleteIndexinMongoDbCollection
 };

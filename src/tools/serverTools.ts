@@ -12,6 +12,7 @@ import {
   countDocs,
   createnewIndexIndexInCollection,
   getIndexesInACollection,
+  deleteIndexinMongoDbCollection
 } from "../service";
 import {
   connectionConfigValidations,
@@ -19,6 +20,7 @@ import {
   updateDocValidations,
   findManyDocValidation,
   createIndexValidation,
+  deleteIndexValidation,
 } from "../validations";
 
 export const serverTools = (server: McpServer) => {
@@ -96,6 +98,13 @@ export const serverTools = (server: McpServer) => {
     "Get all indexes in a Collection",
     "Get all indexes in a collection givem a connection string, dbName, collectionName",
     connectionConfigValidations.shape,
+    getIndexesInACollection
+  );
+
+  server.tool(
+    "Delete an index in a Collection",
+    "Delete an index in a collection givem a connection string, dbName, collectionName and indexName",
+    deleteIndexValidation.shape,
     getIndexesInACollection
   );
 
