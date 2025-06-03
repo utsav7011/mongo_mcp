@@ -1,4 +1,4 @@
-import { getMongoClient, logger } from "../config";
+import { getMongoClient } from "../config";
 import { MongoClient } from "mongodb";
 
 export async function getIndexesInACollection(args: {
@@ -14,10 +14,10 @@ export async function getIndexesInACollection(args: {
   try {
     const { connectionString, dbName, collectionName } = args;
 
-    logger.info("getIndexes: connecting to database: ");
-    logger.info(`getIndexes: connectionString: ${connectionString}`);
-    logger.info(`getIndexes: databaseName: ${dbName}`);
-    logger.info(`getIndexes: collectionName: ${collectionName}`);
+    console.log("getIndexes: connecting to database: ");
+    console.log(`getIndexes: connectionString: ${connectionString}`);
+    console.log(`getIndexes: databaseName: ${dbName}`);
+    console.log(`getIndexes: collectionName: ${collectionName}`);
 
     client = await (await getMongoClient(connectionString)).connect();
 

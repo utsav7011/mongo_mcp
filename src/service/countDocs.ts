@@ -1,4 +1,4 @@
-import { getMongoClient, logger } from "../config";
+import { getMongoClient } from "../config";
 import { MongoClient } from "mongodb";
 
 export async function countDocs(args: {
@@ -15,11 +15,11 @@ export async function countDocs(args: {
   try {
     const { connectionString, dbName, collectionName, query } = args;
 
-    logger.info("CountDocs: connecting to database: ");
-    logger.info(`CountDocs: connectionString: ${connectionString}`);
-    logger.info(`CountDocs: databaseName: ${dbName}`);
-    logger.info(`CountDocs: collectionName: ${collectionName}`);
-    logger.info(`CountDocs: query: ${JSON.stringify(query)}`);
+    console.log("CountDocs: connecting to database: ");
+    console.log(`CountDocs: connectionString: ${connectionString}`);
+    console.log(`CountDocs: databaseName: ${dbName}`);
+    console.log(`CountDocs: collectionName: ${collectionName}`);
+    console.log(`CountDocs: query: ${JSON.stringify(query)}`);
 
     client = await (await getMongoClient(connectionString)).connect();
     

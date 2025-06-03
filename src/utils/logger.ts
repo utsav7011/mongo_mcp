@@ -56,9 +56,3 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default logger;
-
-// Usage example:
-// import logger from './utils/logger';
-// logger.info('This is an info message');
-// logger.error('This is an error message');
-// logger.warn('This is a warning message'); 
