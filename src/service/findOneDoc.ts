@@ -1,4 +1,4 @@
-import { getMongoClient, logger } from "../config";
+import { getMongoClient } from "../config";
 import { MongoClient } from "mongodb";
 
 export async function findOneDoc(args: {
@@ -15,11 +15,11 @@ export async function findOneDoc(args: {
   try {
     const { connectionString, dbName, collectionName, query } = args;
 
-    logger.info("FindOneDocs: connecting to database: ");
-    logger.info(`FindOneDocs: connectionString: ${connectionString}`);
-    logger.info(`FindOneDocs: databaseName: ${dbName}`);
-    logger.info(`FindOneDocs: collectionName: ${collectionName}`);
-    logger.info(`FindOneDocs: query: ${JSON.stringify(query)}`);
+    console.log("FindOneDocs: connecting to database: ");
+    console.log(`FindOneDocs: connectionString: ${connectionString}`);
+    console.log(`FindOneDocs: databaseName: ${dbName}`);
+    console.log(`FindOneDocs: collectionName: ${collectionName}`);
+    console.log(`FindOneDocs: query: ${JSON.stringify(query)}`);
 
     client = await (await getMongoClient(connectionString)).connect();
     const db = client.db(dbName);

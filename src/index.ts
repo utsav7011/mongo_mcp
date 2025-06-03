@@ -1,6 +1,5 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { logger } from "./config";
 import serverTools from "./tools";
 
 const server = new McpServer({
@@ -21,6 +20,6 @@ const main = async () => {
 };
 
 main().catch((error) => {
-  logger.error(`Mcp Server initializaton failed: ${error}`);
+  console.error(`Mcp Server initializaton failed: ${error}`);
   process.exit(1);
 });

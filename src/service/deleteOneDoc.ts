@@ -1,4 +1,4 @@
-import { getMongoClient, logger } from "../config";
+import { getMongoClient } from "../config";
 import { MongoClient } from "mongodb";
 
 export async function deleteOneDoc(args: {
@@ -15,11 +15,11 @@ export async function deleteOneDoc(args: {
   try {
     const { connectionString, dbName, collectionName, query } = args;
 
-    logger.info("DeleteOneDoc: connecting to database: ");
-    logger.info(`DeleteOneDoc: connectionString: ${connectionString}`);
-    logger.info(`DeleteOneDoc: databaseName: ${dbName}`);
-    logger.info(`DeleteOneDoc: collectionName: ${collectionName}`);
-    logger.info(`DeleteOneDoc: query: ${JSON.stringify(query)}`);
+    console.log("DeleteOneDoc: connecting to database: ");
+    console.log(`DeleteOneDoc: connectionString: ${connectionString}`);
+    console.log(`DeleteOneDoc: databaseName: ${dbName}`);
+    console.log(`DeleteOneDoc: collectionName: ${collectionName}`);
+    console.log(`DeleteOneDoc: query: ${JSON.stringify(query)}`);
 
     client = await (await getMongoClient(connectionString)).connect();
     const db = client.db(dbName);

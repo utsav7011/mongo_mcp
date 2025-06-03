@@ -1,5 +1,5 @@
 import { IndexSpecification, MongoClient } from "mongodb";
-import { getMongoClient, logger } from "../config";
+import { getMongoClient } from "../config";
 
 export const createnewIndexIndexInCollection = async (args: {
   connectionString: string;
@@ -59,7 +59,7 @@ export const createnewIndexIndexInCollection = async (args: {
       indexParameters as IndexSpecification,
       indexOptions
     );
-    logger.info(":::: create new index ::: ", result);
+    console.log(":::: create new index ::: ", result);
 
     return {
       content: [

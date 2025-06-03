@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb";
-import { getMongoClient, logger } from "../config";
+import { getMongoClient } from "../config";
 
 export async function updateOneDoc(args: {
   connectionString: string;
@@ -17,11 +17,11 @@ export async function updateOneDoc(args: {
     const { connectionString, dbName, collectionName, query, updatedValues } =
       args;
 
-    logger.info(`Update one doc:::: connectionString: ${connectionString}`);
-    logger.info(`Update one doc:::: dbName: ${dbName}`);
-    logger.info(`Update one doc:::: collectionName: ${collectionName}`);
-    logger.info(`Update one doc:::: query: ${JSON.stringify(query)}`);
-    logger.info(
+    console.log(`Update one doc:::: connectionString: ${connectionString}`);
+    console.log(`Update one doc:::: dbName: ${dbName}`);
+    console.log(`Update one doc:::: collectionName: ${collectionName}`);
+    console.log(`Update one doc:::: query: ${JSON.stringify(query)}`);
+    console.log(
       `Update one doc:::: updatedValues: ${JSON.stringify(updatedValues)}`
     );
 

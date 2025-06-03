@@ -1,4 +1,4 @@
-import { getMongoClient, logger } from "../config";
+import { getMongoClient } from "../config";
 import { RequestHandlerExtra } from "@modelcontextprotocol/sdk/shared/protocol";
 import {
   ServerRequest,
@@ -26,15 +26,15 @@ export async function findManyDoc(
   let client: MongoClient | null = null;
   try {
     const { connectionString, dbName, collectionName, query, projections, sort, limit, skip } = args;
-    logger.info("Find ManyDocs: connecting to database: ");
-    logger.info(`Find ManyDocs: connectionString: ${connectionString}`);
-    logger.info(`Find ManyDocs: databaseName: ${dbName}`);
-    logger.info(`Find ManyDocs: collectionName: ${collectionName}`);
-    logger.info(`Find ManyDocs: query: ${JSON.stringify(query)}`);
-    logger.info(`Find ManyDocs: projections: ${JSON.stringify(projections)}`);
-    logger.info(`Find ManyDocs: sort: ${JSON.stringify(sort)}`);
-    logger.info(`Find ManyDocs: limit: ${limit}`);
-    logger.info(`Find ManyDocs: skip: ${skip}`);
+    console.log("Find ManyDocs: connecting to database: ");
+    console.log(`Find ManyDocs: connectionString: ${connectionString}`);
+    console.log(`Find ManyDocs: databaseName: ${dbName}`);
+    console.log(`Find ManyDocs: collectionName: ${collectionName}`);
+    console.log(`Find ManyDocs: query: ${JSON.stringify(query)}`);
+    console.log(`Find ManyDocs: projections: ${JSON.stringify(projections)}`);
+    console.log(`Find ManyDocs: sort: ${JSON.stringify(sort)}`);
+    console.log(`Find ManyDocs: limit: ${limit}`);
+    console.log(`Find ManyDocs: skip: ${skip}`);
 
     client = await (await getMongoClient(connectionString)).connect();
 
@@ -48,7 +48,7 @@ export async function findManyDoc(
     if (Object.keys(query).length !== 0) {
       resultDoc = await collection.find(query, {projection: projections}).sort(sort as any || {}).limit(limit || 10).skip(skip || 0).toArray();
     }
-    logger.info(` Data: :::::: ${JSON.stringify(resultDoc)}`);
+    console.log(` Data: :::::: ${JSON.stringify(resultDoc)}`);
     return {
       content: [
         {

@@ -1,5 +1,4 @@
 import { MongoClient } from "mongodb";
-import { logger } from "../config";
 import { RequestHandlerExtra } from "@modelcontextprotocol/sdk/shared/protocol";
 import {
   ServerNotification,
@@ -17,10 +16,10 @@ export async function getAllDataFromMongoDb(
   let client: MongoClient | null = null;
   const { connectionString, collectionName, dbName } = args;
   try {
-    logger.info("connecting to database: ");
-    logger.info(`connectionString: ${connectionString}`);
-    logger.info(`databaseName: ${dbName}`);
-    logger.info(`collectionName: ${collectionName}`);
+    console.log("connecting to database: ");
+    console.log(`connectionString: ${connectionString}`);
+    console.log(`databaseName: ${dbName}`);
+    console.log(`collectionName: ${collectionName}`);
 
     client = new MongoClient(connectionString);
     await client.connect();
