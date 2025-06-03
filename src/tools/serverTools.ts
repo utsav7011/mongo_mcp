@@ -105,7 +105,7 @@ export const serverTools = (server: McpServer) => {
     "Delete an index in a Collection",
     "Delete an index in a collection givem a connection string, dbName, collectionName and indexName",
     deleteIndexValidation.shape,
-    getIndexesInACollection
+    deleteIndexinMongoDbCollection
   );
 
   // todo:
